@@ -1,0 +1,144 @@
+
+body::before {
+    background-image: url("https://wallpapers.com/images/hd/fairy-lights-aesthetic-399tjhc3eyh6a9ri.jpg");
+    content: "";
+    position: fixed; /* Stay fixed while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Adjust blur level */
+    z-index: -1; /* Ensure it stays behind the content */
+}
+.scraper-header {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 10px;     /* Adjust this value to change the roundness */
+    padding: 20px;
+    margin: 10px;
+    margin-bottom: 0px;
+    border-width: 1px;
+    display: flex;
+}
+.header-left {
+    flex: 0 0 90%;
+}
+.header-right {
+    flex: 0 0 10%;
+}
+#limitNumber {
+    width: 35px;
+}
+.scraper-title{
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;     /* Adjust this value to change the roundness */
+    padding: 20px;
+    margin: 10px;
+    margin-bottom: 0px;
+    border-width: 1px;
+    border: 1px solid #000;  /* You can change the color and width */
+}
+.scraper-results-grid {
+    /*background-color: #87A2FF;*/
+    border-radius: 10px;     /* Adjust this value to change the roundness */
+    padding: 10px;           /* Optional: Add padding for inner content */
+    margin-bottom: 50px;
+    border-width: 1px;
+}
+.result-card {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;     /* Adjust this value to change the roundness */
+    padding: 2px;           /* Optional: Add padding for inner content */
+    margin-top: 10px;
+    border-width: 1px;
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+    border: 1px solid #000;  /* You can change the color and width */
+}
+.event-date {
+    border-radius: 20px 0 0 20px;
+    /*background-color: #C4D7FF;*/
+    padding: 7px;
+    margin-right: 0px;     /* Space between left and right parts */
+    padding-left: 10px;
+    flex-shrink: 0;         /* Prevent shrinking on smaller screens */
+    width: 100px;
+    align-content: center;
+}
+
+/* Right part of each item */
+.event-content {
+    flex-grow: 1;               /* Allow right part to grow and take remaining space */
+    text-align: left;           /* Align content to the right */
+    border-left: 1px solid #000;
+}
+
+.event-content-title {
+    height: 50%;
+    padding-left: 10px;
+    border-bottom: 1px solid #000;
+    display: grid;
+    align-items: center;
+    padding-top: 5px;
+    overflow: hidden;
+    border-radius: 0 20px 0 0;
+}
+.event-content-artist {
+    /*background-color: #FFF4B5;*/
+    padding-left: 10px;
+    height: 25%;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0 0 20px 0;
+}
+.event-content-genre {
+    /*background-color: #FFF4B5;*/
+    padding-left: 10px;
+    height: 25%;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+}
+/* Image fit to width of the container */
+.fit-image {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    cursor: pointer; /* Pointer to indicate clickable image */
+}
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black with transparency */
+}
+
+/* Modal image */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%; /* Limits the width of the modal to 90% of the viewport */
+    max-height: 90%; /* Limits the height of the modal to 90% of the viewport */
+    width: auto; /* Ensures the image keeps its original width and doesn't stretch */
+    height: auto; /* Ensures the image keeps its aspect ratio */
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
