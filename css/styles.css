@@ -1,6 +1,6 @@
 
 body::before {
-    background-image: url("https://wallpapers.com/images/hd/fairy-lights-aesthetic-399tjhc3eyh6a9ri.jpg");
+    background-image: url('../images/background.jpg');
     content: "";
     position: fixed; /* Stay fixed while scrolling */
     top: 0;
