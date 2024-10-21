@@ -52,20 +52,21 @@ async function fetchScrapers() {
         if (!response.ok) {
             throw new Error('Failed to fetch scraper list');
         }
-        const scraperList = document.getElementById('scraperList');
         const scraperResults = document.getElementById('scraperResults');
+
+        const headerLeft = document.getElementById('header-left');
 
         const scrapers = await response.json();
         Object.entries(scrapers).forEach(([key, value]) => {
             if (value.enabled) {
                 // Display scrapers in a list
-                const listItem = document.createElement('li');
-                listItem.classList.add('list-inline-item', 'me-2');
-                const anchorLi = document.createElement('a');
-                anchorLi.href = `#${key}`;
-                anchorLi.textContent = value.displayname;
-                listItem.appendChild(anchorLi);
-                scraperList.appendChild(listItem);
+                const headerItem = document.createElement('div');
+                const headerItemLink = document.createElement('a');
+                headerItem.classList.add('header-item');
+                headerItemLink.href = `#${key}`;
+                headerItemLink.textContent = value.displayname;
+                headerItem.append(headerItemLink);
+                headerLeft.append(headerItem);
 
                 var body = prepBody(key, value.displayname);
                 scraperResults.appendChild(body[0]);

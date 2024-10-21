@@ -13,9 +13,6 @@ body::before {
     z-index: -1; /* Ensure it stays behind the content */
 }
 .scraper-header {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border-radius: 10px;     /* Adjust this value to change the roundness */
     padding: 20px;
     margin: 10px;
     margin-bottom: 0px;
@@ -23,10 +20,28 @@ body::before {
     display: flex;
 }
 .header-left {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
     flex: 0 0 90%;
 }
 .header-right {
     flex: 0 0 10%;
+}
+.header-item {
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px; /* Fixed height */
+    font-size: 20px;
+    cursor: pointer; /* Make it look clickable */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+a:link, a:visited{
+    color: black;
 }
 #limitNumber {
     width: 35px;
