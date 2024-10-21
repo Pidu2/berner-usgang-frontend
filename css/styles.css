@@ -28,6 +28,35 @@ body::before {
 }
 .header-right {
     flex: 0 0 10%;
+    width: 100%;
+    font-size: 40px;
+    border-left: 2px solid black;
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+}
+
+.limit-controls {
+    display: flex;
+    justify-content: center; /* Center the limit buttons horizontally */
+    width: 100%; /* Make sure it takes the full width available */
+}
+
+.limit-buttons {
+    display: flex;
+    justify-content: space-between; /* Space the buttons out evenly */
+    align-items: center;
+    width: 100%; /* Use full available width */
+}
+
+.limit-buttons img {
+    max-width: 100%; /* Allow images to scale within the available space */
+    flex: 1; /* Allow images to grow and share space equally */
+    margin: 0 5px; /* Optional: Add small space between the buttons */
+    cursor: pointer;
 }
 .header-item {
     background-color: rgba(255, 255, 255, 0.6);

@@ -15,9 +15,14 @@
 
             <!--Limit -->
             <div class="header-right">
-                <div class="limit-plus"></div>
-                <div class="limit-minus"></div>
-                <input type="number" class="form-number" min="1" max="20" step="1" id="limitNumber" value="5">
+                <div class="limit-label">Limit</div>
+                <div id="limitNumber">5</div>
+                <div class="limit-controls">
+                <div class="limit-buttons">
+                    <img class="limit-plus" src="images/plus.png" width="20px" id="limitPlus" onclick="increaseLimit()">
+                    <img class="limit-minus" src="images/minus.png" width="20px" id="limitMinus" onclick="decreaseLimit()">
+                </div>
+                </div>
             </div>
         </header>
 

@@ -60,13 +60,13 @@ async function fetchScrapers() {
         Object.entries(scrapers).forEach(([key, value]) => {
             if (value.enabled) {
                 // Display scrapers in a list
-                const headerItem = document.createElement('div');
                 const headerItemLink = document.createElement('a');
+                const headerItem = document.createElement('div');
                 headerItem.classList.add('header-item');
                 headerItemLink.href = `#${key}`;
-                headerItemLink.textContent = value.displayname;
-                headerItem.append(headerItemLink);
-                headerLeft.append(headerItem);
+                headerItem.textContent = value.displayname;
+                headerItemLink.append(headerItem);
+                headerLeft.append(headerItemLink);
 
                 var body = prepBody(key, value.displayname);
                 scraperResults.appendChild(body[0]);
@@ -123,24 +123,35 @@ async function fetchScraperResults(scraper, resultGrid, limit = 5) {
     }
 }
 
-// Update scraper results when the limit slider is changed
-document.getElementById('limitNumber').addEventListener('input', (event) => {
-    const limit = event.target.value;
+function decreaseLimit(){
+    setLimit(-1);
+}
 
+function increaseLimit(){
+    setLimit(1);
+}
+
+function setLimit(limit) {
+    const currentNu = document.getElementById('limitNumber');
+    let newLimit = parseInt(currentNu.textContent, 10) + limit;
+    if (newLimit > 20 || newLimit < 1) {
+        return
+    }
+    currentNu.textContent = newLimit;
     // Clear the existing results
     const scraperResults = document.getElementById('scraperResults');
     scraperResults.innerHTML = '';
 
     // Re-fetch all scraper results with the new limit
-    const scrapers = document.querySelectorAll('#scraperList a');
+    const scrapers = document.querySelectorAll('#header-left a');
     scrapers.forEach(scraperItem => {
         const scraperKey = scraperItem.getAttribute("href").replace("#", "");
         const scraperDisplay = scraperItem.textContent;
         var body = prepBody(scraperKey, scraperDisplay);
         scraperResults.appendChild(body[0]);
-        fetchScraperResults(scraperKey, body[1], limit);
+        fetchScraperResults(scraperKey, body[1], newLimit);
     });
-});
+}
 
 // Initial fetch of scrapers and results
 fetchScrapers();
