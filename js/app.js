@@ -1,3 +1,15 @@
+function getbackendURL(){
+    const currentHostname = window.location.hostname;
+    let backendUrl;
+    if (currentHostname === "localhost" || currentHostname === "127.0.0.1") {
+        // If running locally, use the remote backend URL
+        backendUrl = `http://${currentHostname}:3000`;
+    } else {
+        // If in production (same domain), use the current hostname
+        backendUrl = `https://${currentHostname}/api`;
+    }
+    return backendUrl
+}
 function openImage(src) {
     var modal = document.getElementById("imageModal");
     var modalImg = document.getElementById("modalImage");
@@ -35,8 +47,8 @@ function prepBody(key, display){
 // Fetch list of scrapers
 async function fetchScrapers() {
     try {
-        const currentHostname = window.location.hostname;
-        const response = await fetch(`https://${currentHostname}/api/scraper`);
+        const currentHostname = getbackendURL();
+        const response = await fetch(`${currentHostname}/scraper`);
         if (!response.ok) {
             throw new Error('Failed to fetch scraper list');
         }
@@ -71,8 +83,8 @@ async function fetchScrapers() {
 // Fetch and display results of individual scrapers
 async function fetchScraperResults(scraper, resultGrid, limit = 5) {
     try {
-        const currentHostname = window.location.hostname;
-        const url = `https://${currentHostname}/api/scraper/${scraper}?limit=${limit}`;
+        const currentHostname = getbackendURL();
+        const url = `${currentHostname}/scraper/${scraper}?limit=${limit}`;
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Failed to fetch results for ${scraper}`);
@@ -89,8 +101,7 @@ async function fetchScraperResults(scraper, resultGrid, limit = 5) {
                 resultCard.innerHTML = `
                   <img src="${result.title}" alt="Image" class="fit-image" onclick="openImage(this.src)">
                   <div id="imageModal" class="modal">
-                      <span class="close" onclick="closeModal()">&times;</span>
-                      <img class="modal-content" id="modalImage">
+                      <img class="modal-content" id="modalImage" onclick="closeModal()">
                   </div>
                 `
             } else {

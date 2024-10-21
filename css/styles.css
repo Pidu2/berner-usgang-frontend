@@ -130,15 +130,5 @@ body::before {
     max-height: 90%; /* Limits the height of the modal to 90% of the viewport */
     width: auto; /* Ensures the image keeps its original width and doesn't stretch */
     height: auto; /* Ensures the image keeps its aspect ratio */
-}
-
-/* Close button */
-.close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
+    cursor: pointer; /* Pointer to indicate clickable image */
 }
