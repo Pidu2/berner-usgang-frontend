@@ -54,7 +54,7 @@ async function fetchScrapers() {
         }
         const scraperResults = document.getElementById('scraperResults');
 
-        const headerLeft = document.getElementById('header-left');
+        const headerLeft = document.getElementById('header-list');
 
         const scrapers = await response.json();
         Object.entries(scrapers).forEach(([key, value]) => {
@@ -143,7 +143,7 @@ function setLimit(limit) {
     scraperResults.innerHTML = '';
 
     // Re-fetch all scraper results with the new limit
-    const scrapers = document.querySelectorAll('#header-left a');
+    const scrapers = document.querySelectorAll('#header-list a');
     scrapers.forEach(scraperItem => {
         const scraperKey = scraperItem.getAttribute("href").replace("#", "");
         const scraperDisplay = scraperItem.textContent;

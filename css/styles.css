@@ -12,54 +12,28 @@ body::before {
     z-index: -1; /* Ensure it stays behind the content */
 }
 .scraper-header {
-    padding: 20px;
-    padding-left: 0px;
     margin: 10px;
     margin-bottom: 0px;
     border-width: 1px;
-    display: flex;
 }
-.header-left {
+.header-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     grid-auto-flow: dense; /* Use dense packing */
     gap: 10px;
-    padding: 10px;
-    flex: 0 0 90%;
-    padding-right: 20px;
 }
-.header-right {
-    flex: 0 0 10%;
-    width: 100%;
-    font-size: 40px;
-    border-left: 2px solid black;
+.header-limit {
     text-align: center;
     color: black;
     display: flex;
-    flex-direction: column; /* Stack the items vertically */
-    align-items: center; /* Center elements horizontally */
-    justify-content: center; /* Center elements vertically */
-    padding-left: 20px;
-}
-
-.limit-controls {
-    display: flex;
-    justify-content: center; /* Center the limit buttons horizontally */
-    width: 100%; /* Make sure it takes the full width available */
-}
-
-.limit-buttons {
-    display: flex;
-    justify-content: space-between; /* Space the buttons out evenly */
+    justify-content: center;
     align-items: center;
-    width: 100%; /* Use full available width */
+    padding-top: 10px;
+    height: 50px;
 }
-
-.limit-buttons img {
-    max-width: 100%; /* Allow images to scale within the available space */
-    flex: 1; /* Allow images to grow and share space equally */
-    margin: 0 5px; /* Optional: Add small space between the buttons */
+.header-limit img {
     cursor: pointer;
+    height: 50%;
 }
 .header-item {
     background-color: rgba(255, 255, 255, 0.6);
@@ -76,7 +50,9 @@ a:link, a:visited{
     color: black;
 }
 #limitNumber {
-    width: 35px;
+    width: 50px;
+    font-size: 30px;
+    font-weight: bolder;
 }
 .scraper-title{
     background-color: rgba(255, 255, 255, 0.6);

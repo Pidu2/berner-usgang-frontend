@@ -11,18 +11,13 @@
     <div class="container">
         <header class="scraper-header">
             <!-- List of Scrapers -->
-            <div class="header-left" id="header-left"></div>
+            <div class="header-list" id="header-list"></div>
 
             <!--Limit -->
-            <div class="header-right">
-                <div class="limit-label">Limit</div>
+            <div class="header-limit">
+                <img class="limit-plus" src="images/plus.png" id="limitPlus" onclick="increaseLimit()">
                 <div id="limitNumber">5</div>
-                <div class="limit-controls">
-                <div class="limit-buttons">
-                    <img class="limit-plus" src="images/plus.png" width="20px" id="limitPlus" onclick="increaseLimit()">
-                    <img class="limit-minus" src="images/minus.png" width="20px" id="limitMinus" onclick="decreaseLimit()">
-                </div>
-                </div>
+                <img class="limit-minus" src="images/minus.png" id="limitMinus" onclick="decreaseLimit()">
             </div>
         </header>
 
