@@ -13,6 +13,7 @@ body::before {
 }
 .scraper-header {
     padding: 20px;
+    padding-left: 0px;
     margin: 10px;
     margin-bottom: 0px;
     border-width: 1px;
