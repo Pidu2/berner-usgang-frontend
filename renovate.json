@@ -5,8 +5,14 @@
   ],
   "packageRules": [
     {
-      "matchConfidence": ["very high","high"],
-      "automerge": true
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "minimumReleaseAge": "5 days",
+      "automerge": true,
+      "automergeType": "branch",
+      "ignoreTests": true
     }
   ]
 }
