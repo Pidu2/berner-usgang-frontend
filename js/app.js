@@ -57,7 +57,9 @@ async function fetchScrapers() {
         const headerLeft = document.getElementById('header-list');
 
         const scrapers = await response.json();
-        Object.entries(scrapers).forEach(([key, value]) => {
+        Object.entries(scrapers)
+          .sort(([, a], [, b]) => Number(a.order) - Number(b.order))
+          .forEach(([key, value]) => {
             if (value.enabled) {
                 // Display scrapers in a list
                 const headerItemLink = document.createElement('a');
