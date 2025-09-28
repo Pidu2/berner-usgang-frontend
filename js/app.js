@@ -60,7 +60,7 @@ async function fetchScrapers() {
         Object.entries(scrapers)
           .sort(([, a], [, b]) => Number(a.order) - Number(b.order))
           .forEach(([key, value]) => {
-            if (value.enabled) {
+            if (value.enabled == "true") {
                 // Display scrapers in a list
                 const headerItemLink = document.createElement('a');
                 const headerItem = document.createElement('div');
